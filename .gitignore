@@ -2,4 +2,16 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Pronto/App_Data/NuGetBackup/20190512-233239/CopyLogs
+/src/.vs
+/src/packages
+/src/Pronto.Web/App_Data/cache
+/src/Pronto.Web/App_Data/Logs
+/src/Pronto.Web/App_Data/NuGetBackup
+/src/Pronto.Web/App_Data/TEMP
+/src/Pronto.Web/bin
+/src/Pronto.Web/obj/Debug
+/src/Pronto.Web/Umbraco
+/src/Pronto.Web/Umbraco_Client
+/src/Pronto/App_Data/NuGetBackup
+/src/Pronto/bin/Debug
+/src/Pronto/obj/Debug

@@ -1,0 +1,57 @@
+﻿<div class="welcome-dashboard" ng-controller="Pronto.Dashboard.Controller as vm">
+
+    <umb-load-indicator ng-if="vm.loading"></umb-load-indicator>
+
+    <div class="span12 clearfix ng-scope" ng-if="vm.dashboard">
+        <div>
+            <div class="umb-dashboard-grid ng-scope">
+                <div class="row clearfix ng-scope">
+                    <div class="grid-section ng-scope">
+                        <div class="span12 column dash-section">
+                            <div class="row clearfix dash-row ng-scope">
+                                <div class="dash-inner-row">
+                                    <div class="span12 column dash-area">
+                                        <div class="dash-inner-area">
+                                            <div class="dash-control dash-control-">
+                                                <div class="dash-inner-control">
+                                                    <div class="ng-binding">
+                                                        <h1 class="title">{{vm.dashboard.Title}}</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dash-control dash-control-">
+                                                <div class="dash-inner-control">
+                                                    <div class="ng-binding">
+                                                        <div class="intro-text">{{vm.dashboard.Subtitle}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix dash-row ng-scope">
+                                <div class="dash-inner-row">
+                                    <div class="span3 column dash-area" ng-repeat="link in vm.dashboard.UsefulLinks">
+                                        <div class="dash-inner-area">
+                                            <div class="dash-control dash-control-">
+                                                <div class="dash-inner-control">
+                                                    <div class="ng-binding">
+                                                        <a href="{{link.Url}}" class="info-box">
+                                                            <div class="info-box__title">{{link.Title}}</div>
+                                                            <div class="info-box__description">{{link.Description}}</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
