@@ -41,7 +41,7 @@ namespace Pronto.Controllers
                 DashboardLink link = new DashboardLink();
                 link.Title = item["title"].ToString();
                 link.Description = item["description"].ToString();
-                link.Url = item["url"].ToString();
+                link.Url = item["linkUrl"].ToString();
                 usefulLinkList.Add(link);
             }
 
