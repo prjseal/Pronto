@@ -8,6 +8,7 @@
 /src/Pronto.Web/App_Data/Logs
 /src/Pronto.Web/App_Data/NuGetBackup
 /src/Pronto.Web/App_Data/TEMP
+/src/Pronto.Web/App_Plugins/Pronto
 /src/Pronto.Web/bin
 /src/Pronto.Web/obj/Debug
 /src/Pronto.Web/Umbraco
