@@ -46,12 +46,57 @@
                                             </div>
                                         </div>
                                     </div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="span12 clearfix ng-scope" ng-if="vm.UserLogHistory.items">
+        <div>
+            <div class="umb-dashboard-grid ng-scope">
+                <div class="row clearfix ng-scope">
+                    <div class="grid-section ng-scope">
+                        <div class="span12 column dash-section">
+                            <div class="row clearfix dash-row ng-scope">
+                                <div class="dash-inner-row">
+                                    <div class="span12 column dash-area">
+                                        <div class="dash-inner-area">
+                                            <div class="dash-control dash-control-">
+                                                <div class="dash-inner-control">
+                                                    <div class="ng-binding">
+                                                        <h2 class="title">Your recent history</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix dash-row ng-scope">
+                                <div class="dash-inner-row">
+                                    <div class="span3 column dash-area" ng-repeat="logEntry in vm.UserLogHistory.items">
+                                        <div class="dash-inner-area">
+                                            <div class="dash-control dash-control-">
+                                                <div class="dash-inner-control">
+                                                    <div class="ng-binding">
+                                                        <a href="/Umbraco/#/{{logEntry.editUrl}}" class="info-box">
+                                                            <div class="info-box__title"><i class="{{logEntry.Content.icon}}"></i> {{logEntry.Content.name}}</div>
+                                                            <div class="info-box__description">{{logEntry.timestamp  | date:'dd/MM/yyyy HH:mm'}}</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

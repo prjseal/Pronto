@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    function ProntoDashboard($scope, $http, logResource) {
+    function ProntoDashboard($scope, $http, logResource, entityResource) {
         var apiUrl;
         var vm = this;
         vm.loading = true;
@@ -16,7 +16,7 @@
 
         $scope.getUserLog = function () {
             var userLogOptions = {
-                pageSize: 10,
+                pageSize: 100,
                 pageNumber: 1,
                 orderDirection: "Descending",
                 sinceDate: new Date(2018, 0, 1)
@@ -24,9 +24,31 @@
 
             logResource.getPagedUserLog(userLogOptions)
                 .then(function (response) {
-                    console.log(response);
-                    vm.UserLogHistory = response;
-                    vm.UserLogHistory.items = response.items;
+                    var filteredLogEntries = [];
+                    angular.forEach(response.items, function (item) {
+                        if (item.nodeId > 0) {
+                            if (item.logType == "Save") {
+                                if (item.comment.match("(\\bContent\\b|\\bMedia\\b)")) {
+                                    if (item.comment.indexOf("Media") > -1) {
+                                        item.editUrl = "media/media/edit/" + item.nodeId;
+                                        item.entityType = "Media";
+                                    }
+                                    if (item.comment.indexOf("Content") > -1) {
+                                        item.editUrl = "content/content/edit/" + item.nodeId;
+                                        item.entityType = "Document";
+                                    }
+                                }
+                                if (typeof item.entityType !== 'undefined') {
+                                    entityResource.getById(item.nodeId, item.entityType).then(function (ent) {
+                                        item.Content = ent;
+                                    });
+
+                                    filteredLogEntries.push(item);
+                                }
+                            }
+                        }
+                    });
+                    vm.UserLogHistory.items = filteredLogEntries;
                 });
         };
 
@@ -38,7 +60,6 @@
                     'Content-Type': 'application/json'
                 }
             }).then(function (response) {
-                console.log(response.data);
                 vm.dashboard = response.data;
                 vm.loading = false;
             });
