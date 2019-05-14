@@ -214,6 +214,7 @@
     <Compile Include="Events\StartupEventHandler.cs" />
     <Compile Include="Models\DashboardData.cs" />
     <Compile Include="Models\DashboardLink.cs" />
+    <Compile Include="PacakgeActions\AddDashboard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
