@@ -15,19 +15,23 @@
         }
 
         $scope.getUserLog = function () {
+            var today = new Date();
+            var startDate = new Date().setDate(today.getDate() - 30);
             var userLogOptions = {
                 pageSize: 100,
                 pageNumber: 1,
                 orderDirection: "Descending",
-                sinceDate: new Date(2018, 0, 1)
+                sinceDate: new Date(startDate)
             };
 
             logResource.getPagedUserLog(userLogOptions)
                 .then(function (response) {
                     var filteredLogEntries = [];
+                    var ids = [];
                     angular.forEach(response.items, function (item) {
-                        if (item.nodeId > 0) {
-                            if (item.logType == "Save") {
+                        if (item.nodeId > 0 && !ids.includes(item.nodeId)) {
+                            ids.push(item.nodeId);
+                            if (item.logType === "Save" || item.logType === "Publish") {
                                 if (item.comment.match("(\\bContent\\b|\\bMedia\\b)")) {
                                     if (item.comment.indexOf("Media") > -1) {
                                         item.editUrl = "media/media/edit/" + item.nodeId;
