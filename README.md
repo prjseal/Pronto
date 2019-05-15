@@ -12,3 +12,8 @@ It also gives the user a recent history, giving them links to the items they hav
 **Username**: admin@admin.com
 
 **Password**: 1234567890
+
+### Umbraco Package
+
+Here is the link to the package on Our Umbraco
+[https://our.umbraco.com/packages/backoffice-extensions/pronto/](https://our.umbraco.com/packages/backoffice-extensions/pronto/)
